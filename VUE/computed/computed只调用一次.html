@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>基本框架</title>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	</head>
+	<style type="text/css">
+
+	</style>
+	<body>
+		<div>
+
+		</div>
+		<div id="app">
+			<h1>{{myname}}</h1>
+			<h1>{{myname}}</h1>
+			<h1>{{myname}}</h1>
+			<h1>{{myname}}</h1>
+			<!-- this.name没有动，computed值执行一次 -->
+
+			<h1>{{myname1()}}</h1>
+			<h1>{{myname1()}}</h1>
+			<h1>{{myname1()}}</h1>
+			<h1>{{myname1()}}</h1>
+			<h1>{{myname1()}}</h1>
+			<!-- 函数执行了四次，computed属性执行了一次 -->
+
+		</div>
+		<script type="text/javascript">
+			let app = new Vue(
+			{
+				el: '#app',
+				data:
+				{
+					name: 'zzl'
+				},
+				methods:
+				{
+					myname1()
+					{
+						console.log('methods')
+						return this.name
+					}
+				},
+				computed:
+				{
+					myname()
+					{
+						console.log('computed')
+						return this.name
+					}
+				}
+			});
+		</script>
+	</body>
+</html>

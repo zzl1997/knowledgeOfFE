@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function parseToMoney(num)
+			{
+				num = parseFloat(num.toFixed(3));
+				// 保留三位小数
+				let [integer, decimal] = String.prototype.split.call(num, '.');
+				integer = integer.replace(/\d(?=(\d{3})+$)/g, '$&,');
+				return integer + '.' + (decimal ? decimal : '');
+			}
+			parseToMoney(1234.56); // return '1,234.56'
+			parseToMoney(123456789); // return '123,456,789'
+			parseToMoney(1087654.321); // return '1,087,654.321'
+
+			function isPhone(tel)
+			{
+				var regx = /^1[34578]\d{9}$/;
+				return regx.test(tel);
+			}
+		</script>
+
+
+	</body>
+</html>

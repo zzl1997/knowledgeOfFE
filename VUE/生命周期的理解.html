@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+	</head>
+	<body>
+		<div id="app">{{yes+1}}</div>
+		<div id="app2"></div>
+		<compontent1></compontent1>
+		<script type="text/javascript">
+			const compontent1 = Vue.extend(
+			{
+				template: `
+			  <div>
+			    <h2>我是标题</h2>
+			    <p>我是内容,哈哈哈哈啊</p>
+			  </div>
+			`
+			})
+			var vm = new Vue(
+			{
+				el: "#app",
+				data:
+				{
+					yes: 'yes'
+				},
+				methods:
+				{
+					show()
+					{
+						return 'i can do something after vue created'
+					}
+				},
+				components:
+				{
+					components1: compontent1
+				},
+				beforeCreate()
+				{
+					console.log('before create,' + '这个时候啥都没有')
+				},
+				created()
+				{
+					console.log(
+						`creadted 这个时候可以访问data和methods
+								比如this.$data.yes的值: ${this.$data.yes},
+								比如methods的值，执行函数show():${this.show()}
+					 `)
+				},
+				beforeMount()
+				{
+					console.log(`
+					beforemount 这个时候VUE编辑好了模板，
+					假如在这里执行alert中断一下，你会看不到页面渲染，
+					而解析好的模板还在内存里面，
+					并没有挂载到页面对应的地方中去
+					`)
+				},
+				mounted()
+				{
+					console.log(`
+					mounted
+					 内存中的模板在页面中被渲染，
+					页面加载结束
+					`)
+
+				},
+				beforeUpdate()
+				{
+					console.log(`
+					beforeupdate 所谓响应式更新，页面的数据在这个时候还是旧的，
+					新的数据会在内存中更新一份最新的virtualDOM
+					`)
+				},
+				updated()
+				{
+					console.log(`
+				 updated	virtualDOM被渲染成为真实的DOM
+					`)
+				}
+
+			})
+			new Vue(
+			{
+				el: '#app2'
+			})
+		</script>
+	</body>
+</html>

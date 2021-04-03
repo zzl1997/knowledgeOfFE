@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div>1.首先使用Notification.requestPermission，让用户允许通知才行</div>
+<div>2.然后使用 new Notification来设定一个通知</div>
+<div>3.然后设定一个时间让弹出来的通知消失</div>
+<div>4.设置可以在通知上面设置跳转的链接</div>
+<script>
+    Notification.requestPermission()
+        .then(
+            function (permission) {
+                console.log('the brower permitted')
+            }
+        )
+
+
+    // 然后通知
+    let notification = new Notification('一个提醒', {
+        body: '这里显示提醒的具体内容'
+    })
+    // 然后关闭通知
+    setTimeout(() => {
+        notification.close()
+    }, 3000)
+    // 最后可以设定点击通知的时候做一个跳转
+    notification.onclick = function () {
+        window.open('http://www.baidu.com')
+        notification.close()
+    }
+
+</script>
+</body>
+</html>

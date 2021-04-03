@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<h2>第一种方式，通过js来实现</h2>
+<div id="box" style="background-color: #1b6f9b; width:200px ;height:200px"></div>
+<script>
+    let box = document.getElementById('box')
+    box.onclick = function (event) {
+        let x1 = 100
+        let y1 = 100
+        let x2 = event.offsetX
+        let y2 = event.offsetY
+
+        let r = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2))
+        if (r <= 100) {
+            console.log('yes')
+        } else {
+            console.log('no')
+        }
+    }
+</script>
+
+<hr>
+<h2>通过border-radius来设置圆形</h2>
+<div id="box2" style="width: 200px; height: 200px ; border-radius: 100px;background-color: #1b6f9b">1</div>
+<style>
+    #box2:hover {
+        cursor: pointer;
+    }
+</style>
+<hr>
+<h2>使用svg来画一个圆</h2>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+  <circle cx="50" cy="50" r="50" stroke="black" stroke-width="2" fill="red"/>
+</svg>
+</body>
+</html>

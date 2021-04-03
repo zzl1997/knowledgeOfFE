@@ -1,0 +1,96 @@
+<!-- 参考：
+函数的防抖和节流是个啥？？？ - Nero的文章 - 知乎
+https://zhuanlan.zhihu.com/p/72923073 -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <style>
+      #box {
+          /* width: 1000px; */
+          height: 100px;
+          background: #ccc;
+          font-size: 40px;
+          text-align: center;
+          /* line-height: 500px; */
+      }
+  </style>
+</head>
+<body>
+鼠标事件停止一秒后，产生作用
+<div id="box">
+</div>
+</body>
+
+
+<script type="module">
+
+    // 现在让我手写一个防抖函数的话
+    // 防抖函数 ，是出于性能优化的角度出发的，比如，一个用户在输入框输入汉字
+    // 然后每输入一个汉字就会触发一次请求，所以写一个十个字的汉字就会触发十次请求，
+    // 不管怎么样，这样的请求方式都是原来的十倍
+
+    // 设计原理，我希望有这么 一个工具，我输入我要执行的函数，和我希望防抖的时间，
+    // 然后这个工具输出一个函数，这个函数的作用是，但凡这个函数还没有到指定的时间就
+    // 被触发，这种触发是无效的，计时器又重新回到初始值
+
+    //
+    console.log('module loaded successfully')
+
+
+    // function debounce1(func, wait = 1) {
+    //     // input: the func you wanna execute ,the time that  func shouldnt be executed
+    //     let timer = false
+    //     return function (...args) {
+    //         clearTimeout(timer)
+    //         timer = setTimeout(() => {
+    //             func.apply(this, args)
+    //         }, wait * 1000)
+    //     }
+    // }
+    //
+    // function show(data) {
+    //     console.log(data)
+    // }
+    //
+    // let execute = debounce1(show, 1)
+    // execute(1)
+    // execute(2)
+    // execute(3)
+
+    // console.log('before sleep')
+    // import {sleep} from './sleepFunction.js'
+    // console.log(sleep)
+    // sleep(1.5)
+    // console.log('after sleep')
+    // execute()
+
+    //
+    // const box = document.getElementById('box')
+    //
+    // function debounce(func, delay)
+    // {
+    // 	let timer
+    // 	return function()
+    // 	{
+    // 		clearTimeout(timer)
+    // 		timer = setTimeout(() =>
+    // 		{
+    // 			func.apply(this, arguments)
+    //
+    // 		}, delay * 1000)
+    // 	}
+    // }
+    //
+    // var shows = function(e)
+    // {
+    // 	box.innerHTML = `${e.clientX}, ${e.clientY}`
+    //
+    // }
+    // var 一秒的函数 = debounce(shows, 1)
+    // box.onmousemove = 一秒的函数
+</script>
+
+</html>

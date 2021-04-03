@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+      div {
+          height: 100px;
+          background-color: #1b6f9b;
+      }
+  </style>
+</head>
+
+<body>
+<div>scrollTop：滚动视窗的高度距离window顶部的距离，它会随着往上滚动而不断增加，初始值是0，它是一个变化的值
+  clientHeight:它是一个定值，表示屏幕可视区域的高度；
+  scrollHeight：页面不能滚动时是不存在的，body长度超过window时才会出现，所表示body所有元素的长度
+</div>
+<div>scrollTop：滚动视窗的高度距离window顶部的距离，它会随着往上滚动而不断增加，初始值是0，它是一个变化的值
+  clientHeight:它是一个定值，表示屏幕可视区域的高度；
+  scrollHeight：页面不能滚动时是不存在的，body长度超过window时才会出现，所表示body所有元素的长度
+</div>
+<div>scrollTop：滚动视窗的高度距离window顶部的距离，它会随着往上滚动而不断增加，初始值是0，它是一个变化的值
+  clientHeight:它是一个定值，表示屏幕可视区域的高度；
+  scrollHeight：页面不能滚动时是不存在的，body长度超过window时才会出现，所表示body所有元素的长度
+</div>
+<div>scrollTop：滚动视窗的高度距离window顶部的距离，它会随着往上滚动而不断增加，初始值是0，它是一个变化的值
+  clientHeight:它是一个定值，表示屏幕可视区域的高度；
+  scrollHeight：页面不能滚动时是不存在的，body长度超过window时才会出现，所表示body所有元素的长度
+</div>
+<div>scrollTop：滚动视窗的高度距离window顶部的距离，它会随着往上滚动而不断增加，初始值是0，它是一个变化的值
+  clientHeight:它是一个定值，表示屏幕可视区域的高度；
+  scrollHeight：页面不能滚动时是不存在的，body长度超过window时才会出现，所表示body所有元素的长度
+</div>
+div>scrollTop：滚动视窗的高度距离window顶部的距离，它会随着往上滚动而不断增加，初始值是0，它是一个变化的值
+clientHeight:它是一个定值，表示屏幕可视区域的高度；
+scrollHeight：页面不能滚动时是不存在的，body长度超过window时才会出现，所表示body所有元素的长度
+</div>
+<div>scrollTop：滚动视窗的高度距离window顶部的距离，它会随着往上滚动而不断增加，初始值是0，它是一个变化的值
+  clientHeight:它是一个定值，表示屏幕可视区域的高度；
+  scrollHeight：页面不能滚动时是不存在的，body长度超过window时才会出现，所表示body所有元素的长度
+</div>
+<div>scrollTop：滚动视窗的高度距离window顶部的距离，它会随着往上滚动而不断增加，初始值是0，它是一个变化的值
+  clientHeight:它是一个定值，表示屏幕可视区域的高度；
+  scrollHeight：页面不能滚动时是不存在的，body长度超过window时才会出现，所表示body所有元素的长度
+</div>
+<div>scrollTop：滚动视窗的高度距离window顶部的距离，它会随着往上滚动而不断增加，初始值是0，它是一个变化的值
+  clientHeight:它是一个定值，表示屏幕可视区域的高度；
+  scrollHeight：页面不能滚动时是不存在的，body长度超过window时才会出现，所表示body所有元素的长度
+</div>
+<div>scrollTop：滚动视窗的高度距离window顶部的距离，它会随着往上滚动而不断增加，初始值是0，它是一个变化的值
+  clientHeight:它是一个定值，表示屏幕可视区域的高度；
+  scrollHeight：页面不能滚动时是不存在的，body长度超过window时才会出现，所表示body所有元素的长度
+</div>
+<div>scrollTop：滚动视窗的高度距离window顶部的距离，它会随着往上滚动而不断增加，初始值是0，它是一个变化的值
+  clientHeight:它是一个定值，表示屏幕可视区域的高度；
+  scrollHeight：页面不能滚动时是不存在的，body长度超过window时才会出现，所表示body所有元素的长度
+</div>
+<div>scrollTop：滚动视窗的高度距离window顶部的距离，它会随着往上滚动而不断增加，初始值是0，它是一个变化的值
+  clientHeight:它是一个定值，表示屏幕可视区域的高度；
+  scrollHeight：页面不能滚动时是不存在的，body长度超过window时才会出现，所表示body所有元素的长度
+</div>
+<div>scrollTop：滚动视窗的高度距离window顶部的距离，它会随着往上滚动而不断增加，初始值是0，它是一个变化的值
+  clientHeight:它是一个定值，表示屏幕可视区域的高度；
+  scrollHeight：页面不能滚动时是不存在的，body长度超过window时才会出现，所表示body所有元素的长度
+</div>
+<script>
+    window.addEventListener('scroll', show_the_data)
+
+    function show_the_data() {
+        let clientHeight = document.documentElement.clientHeight
+        let scrollHeight = document.documentElement.scrollHeight
+        let scrollTop = document.documentElement.scrollTop
+        console.log(clientHeight, scrollHeight, scrollTop)
+        // if(scrollTop+clientHeight==scrollHeight){
+        //     console.log('触及了底部')
+        // }
+        if (scrollTop + clientHeight >= (scrollHeight - 50)) {
+            console.log('在距离底部还有五十像素的时候，触发')
+        }
+        // 当页面触及到最底部的时候，其实这三组数字是
+        // 907 1279 372
+        // 即 clientHeight+scrollTop=scrollHeight
+
+    }
+
+</script>
+</body>
+</html>

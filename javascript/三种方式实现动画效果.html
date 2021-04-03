@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#c {
+				animation: move 1s infinite;
+
+			}
+
+			@-webkit-keyframes move {
+				from {
+					left: 0px;
+				}
+
+				to {
+					left: 100px;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div id="a" style="width: 100px;height: 100px;background-color: #00FF00; position: relative;left: 0px;"> </div>
+		<div id="b" style="width: 100px;height: 100px;background-color: red; position: relative;left: 0px;"> </div>
+		<div id="c" style="width: 100px;height: 100px;background-color: yellow; position: relative;left: 0px;"> </div>
+
+		</div>
+	</body>
+	<script type="text/javascript">
+		var a = document.querySelector('#a')
+		console.log(a.style.left)
+		var id = setInterval(() =>
+		{
+			if (parseInt(a.style.left) < 0 || parseInt(a.style.left) > 100)
+			{
+				clearInterval(id)
+			}
+			else
+			{
+				a.style.left = (parseInt(a.style.left) + 1) + 'px'
+			}
+		}, 1000 / 60)
+
+		var b = document.getElementById("b");
+
+		function render()
+		{
+			if (b.style.left !== "100px")
+			{
+				b.style.left = (parseInt(b.style.left) + 1) + 'px'
+			}
+
+			// left == 0 ? flag = true : left == 100 ? flag = false : '';
+			// flag ? e.style.left = ` ${left++}px` :
+			// 	e.style.left = ` ${left--}px`;
+		}
+
+		(function animloop()
+		{
+			render();
+			window.requestAnimationFrame(animloop);
+		})();
+	</script>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+<body>
+
+<script type="text/javascript">
+    class EventHub {
+        constructor() {
+            this.events = {}
+        }
+
+        on(eventname, callback) {
+            if (this.events[eventname]) {
+                this.events[eventname].push(callback)
+            } else {
+                this.events[eventname] = [callback]
+            }
+        }
+
+        emit(eventname, ...args) {
+            if (this.events[eventname].length == 0) {
+                throw `the event ${eventname} do not exist`
+            }
+            this.events[eventname] && this.events[eventname].forEach((func) => {
+                func.apply(this, args)
+            })
+        }
+
+        remove(eventname, callback) {
+            if (this.events[eventname]) {
+                this.events[eventname] = this.events[eventname].filter((f) => {
+                    f != callback
+                })
+            }
+        }
+
+        once(eventname, callback) {
+            const fn = (...args) => {
+                callback.apply(this, args)
+                this.remove(eventname, fn)
+            }
+            this.on(eventname, fn)
+        }
+    }
+
+    // test
+    const event = new EventHub()
+    const handle = (...payload) => {
+        console.log(payload)
+    }
+
+    event.on('click', handle)
+
+    event.emit('click', 100, 200, 300)
+    event.remove('click', handle)
+    event.once('dbclick', handle)
+    event.emit('dbclick', 100)
+
+    // 后面两次都失效了
+    event.emit('dbclick', 100)
+    event.emit('dbclick', 100)
+
+
+</script>
+</body>
+</html>

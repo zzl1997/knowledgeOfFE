@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>title</title>
+  <meta name="Description" content="yes i am a descripttion"/>
+  <meta name="Keywords" content="yes  yes   kewords"/>
+</head>
+<style type="text/css">
+    .box1 {
+        width: 300px;
+        height: 300px;
+        background-color: red;
+    }
+
+    .box2 {
+        width: 200px;
+        height: 200px;
+        background-color: aqua;
+    }
+
+    .box3 {
+        width: 100px;
+        height: 100px;
+        background-color: blanchedalmond;
+    }
+</style>
+<body>
+<div class="box1">
+
+  <div class="box2">
+
+    <div class="box3">
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+    // var box1 = document.getElementsByClassName('box1')[0]
+    // box1.addEventListener('click'，function()
+    // {
+    // 	alert(1)
+    // }, true)
+
+    function bubbleSort(arr) {
+        var len = arr.length;
+        // һ������n��,ÿ�α����ķ�Χ��i����
+        for (var i = 1; i <= len - 1; i++) {
+            for (var j = 0; j <= len - i; j++) {
+                if (arr[j] > arr[j + 1]) { // ����Ԫ�������Ա�
+                    var temp = arr[j + 1]; // Ԫ�ؽ���
+                    arr[j + 1] = arr[j];
+                    arr[j] = temp;
+                }
+            }
+        }
+        return arr;
+    }
+
+    console.log(bubbleSort([5, 4, 3, 2, 1]));
+
+    function insertion(array) {
+        // checkArray(array);
+        for (let i = 1; i < array.length; i++) {
+            for (let j = i - 1; j >= 0 && array[j] > array[j + 1]; j--)
+                [array[j], array[j + 1]] = [array[j + 1], array[j]]
+        }
+        return array;
+    }
+
+    insertion([5, 4, 3, 2, 1])
+
+    function selection(array) {
+        for (let i = 0; i <= array.length - 2; i++) {
+            let minindex = i
+            for (let j = i + 1; j <= array.length - 1; j++) {
+                minindex = array[j] < array[minindex] ? j : minindex
+            }
+            [array[i], array[minindex]] = [array[minindex], array[i]]
+
+        }
+
+        return array
+    }
+
+    selection([5, 4, 3, 2, 1])
+
+    function mergeSort(array, left, right)
+
+    // Input  an array and the left and right pointer return a sorted  value
+    {
+        if (left === right) {
+            return
+        }
+        var mid = parseInt(left + ((right - left) / 2))
+        mergeSort(array, left, mid)
+        mergeSort(array, mid + 1, right)
+
+        var p1 = left
+        var p2 = mid + 1
+        var help = []
+        var k = 0
+
+        while (p1 <= mid && p2 <= right) {
+            help[k++] = array[p1] <= array[p2] ? array[p1++] : array[p2++]
+        }
+        while (p1 <= mid) {
+            help[k++] = array[p1++]
+
+        }
+        while (p2 <= right) {
+            help[k++] = array[p2++]
+        }
+        for (let i = 0; i < help.length; i++) {
+            array[left + i] = help[i]
+        }
+        return array
+
+    }
+
+    // console.log(mergeSort([8, 7, 6, 5, 4, 3, 2, 1, 0], 0, [8, 7, 6, 5, 4, 3, 2, 1, 0].length-1))
+
+    function quicksort(array, left, right) {
+        if (left < right) {
+            var index = partition(array, left, right)
+            quicksort(array, left, index - 1)
+            quicksort(array, index + 1, right)
+        }
+        return array
+
+        function partition(array, left, right) {
+            const pivot = array[left]
+
+            var i = left
+            var j = right
+
+            while (i !== j) {
+                while (i < j && array[i] < pivot) {
+                    i++
+                }
+                while (i < j && array[j] >= pivot) {
+                    j--
+                }
+                if (i < j) {
+                    [array[i], array[j]] = [array[j], array[i]]
+                }
+
+            }
+            [array[i], array[right]] = [array[right], array[i]]
+            return i
+        }
+    }
+
+    function quick_sort(arr, left, right) {
+
+        var i = left;
+        var j = right;
+        var pivot = arr[left];
+        if (left >= right) {
+            return;
+        }
+        while (i < j) {
+            while (arr[j] > pivot && i < j) {
+                j--;
+            }
+            while (arr[i] <= pivot && i < j) {
+                i++;
+            }
+
+            if (i < j) {
+                [arr[i], arr[j]] = [arr[j], arr[i]]
+            }
+        }
+        arr[left] = arr[i] //
+        arr[i] = pivot;
+        quick_sort(arr, left, i - 1);
+        quick_sort(arr, i + 1, right);
+        return arr
+    }
+
+    var demo = [3, 5, 8, 1, 2, 9, 4, 7, 6]
+    console.log(1)
+    console.log(quick_sort(demo, 0, demo.length - 1))
+
+    var sortColors = function (nums) {
+
+        function swap(a, b) {
+            [a, b] = [b, a]
+        }
+
+        let left = -1;
+        let right = nums.length;
+        let i = 0;
+        // �±��������� right��˵���Ѿ���������
+        while (i < right) {
+            if (nums[i] == 0) {
+                swap(nums, i++, ++left);
+            } else if (nums[i] == 1) {
+                i++;
+            } else {
+                swap(nums, i, --right);
+            }
+        }
+    };
+
+    sortColors([2, 0, 2, 1, 1, 0])
+
+    var length = 10
+
+    function my() {
+        console.log(this.length)
+    }
+
+    var obj = {
+        length: 5,
+        fangfa(bianliang) {
+            bianliang()
+            arguments[0]()
+
+        }
+    }
+
+    obj.fangfa(my, 1)
+</script>
+</body>
+</html>

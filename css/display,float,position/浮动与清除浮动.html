@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div style="background-color: red; border: #000000 2px  solid;">
+			<div style="width: 100px;height: 100px;background-color: #000000; float: left;">
+
+			</div>
+			<div style="width: 100px;height: 100px;background-color: #00FF00; float: left;">
+
+			</div>
+		</div>
+		<div>
+			本来是，父元素没有设置宽和高，父元素撑开当子元素设置了float之后，子元素脱离文档流，父元素坍缩，表现为只剩下框
+			由于脱离文档留，原本显示在文档上面的元素会被这个设置了float的元素遮挡，但是文字不一样，文字会自动避开浮动元素
+		</div>
+		<div style="clear: both;">这个时候可以在后面加个clearboth属性</div>
+
+		<hr>
+
+		那么如何清除浮动呢？
+		<hr>
+		<div style="overflow: hidden; background-color: red; border: #000000 2px  solid;">
+			<div style="width: 100px;height: 100px;background-color: #000000; float: left;">
+
+			</div>
+			<div style="width: 100px;height: 100px;background-color: #00FF00; float: left;">
+
+			</div>
+		</div>
+	</body>
+</html>

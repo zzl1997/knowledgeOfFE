@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#header,
+			#footer {
+				background-color: #87CEEB;
+				text-align: center;
+				line-height: 60px;
+				line-height: 60px;
+			}
+
+			#left {
+				width: 200px;
+				background-color: #FFEBCD;
+				float: left;
+				margin-left: -100%;
+				position: relative;
+				left: -200px;
+			}
+
+			#center {
+				background-color: #FF0000;
+				width: 100%;
+				float: left;
+			}
+
+			#right {
+				width: 200px;
+				background-color: #FF33FF;
+				float: left;
+				margin-left: -200px;
+				/* 使用margin-left左移元素 */
+
+				position: relative;
+				right: -200px;
+			}
+
+			.column {
+				height: 200px;
+			}
+
+			#footer {
+				clear: both;
+			}
+
+			#container {
+				padding: 0 200px;
+			}
+		</style>
+	</head>
+
+
+	<body>
+		<div id="header">
+			header
+		</div>
+		<div id="container">
+			<div id="center" class="column">center</div>
+			<div id="left" class="column">
+				left
+			</div>
+			<div id="right" class="column">
+				right
+			</div>
+		</div>
+		<div id="footer">
+			footer
+		</div>
+	</body>
+</html>

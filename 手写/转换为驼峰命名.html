@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+
+		<script type="text/javascript">
+			var s1 = "get-element-by-id"
+
+			// 转化为 getElementById
+
+			var f = function(s)
+			{
+				return s.replace(/-\w/g, function(x)
+				{
+					return x.slice(1).toUpperCase();
+				})
+			}
+		</script>
+	</body>
+</html>

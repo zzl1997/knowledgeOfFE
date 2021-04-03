@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+<body>
+<script type="text/javascript">
+    // 输入：左边是一个实例，右边是一个类，我们要查一下，这个实例是不是在这个类上面
+    function myInstanceof(obj, constructor) {
+        let proto = Object.getPrototypeOf(obj)
+        while (true) {
+            if (proto === null) {
+                return false
+            }
+            if (proto === constructor) {
+                return true
+            }
+            proto = Object.getPrototypeOf(proto)
+        }
+    }
+
+    class Me {
+        constructor(name) {
+            this.name = name
+
+        }
+    }
+
+    class Father {
+        constructor(thename) {
+            this.thename = thename
+        }
+    }
+
+
+    let me = new Me("zzl")
+    me.__proto__ = Father
+    console.log(myInstanceof(me, Father))
+
+</script>
+</body>
+</html>

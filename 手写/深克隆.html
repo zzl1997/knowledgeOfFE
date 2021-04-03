@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+<body>
+<script type="text/javascript">
+    let obj = {
+        name: 'zzl',
+        age: 21,
+        add() {
+            console.log(1)
+        }
+    }
+
+    let father = {thename: 'father'}
+    obj.__proto__ = father
+
+    // console.log(obj)
+    // 对于一种简单类型的克隆，将其转换为json字符串然后再转化回来即可
+    let newobj = JSON.parse(JSON.stringify(obj))
+    console.log(newobj)
+    // 由于是单纯的字符串转换这种方法有一定的局限性，对于函数这种就无法转换为json了,而且它的原型链也丢掉了
+
+    // 接下来介绍一种新的深拷贝现象
+
+    obj = {
+        add() {
+            console.log('add()')
+        },
+        name: "zzl",
+        arr: [],
+        age: 21
+    }
+
+    // 这种深克隆的方法，会把一个对象本身的属性和它原型链上面的属性全部克隆下来
+    // 由于其中有递归，因此需要介绍对的函数的输入输出有，输入一个任意对象，输出一个复制的
+    // 对象，这个对象拥有原始对象及其原型链上面的所有属性值
+
+    function deepclone(obj) {
+        let newobj = undefined
+        if (typeof obj == 'object') {
+            newobj = obj.constructor === Array ? [] : {}
+            for (let n in obj) {
+                newobj[n] = typeof obj[n] === 'object' ? deepclone(obj[n]) : obj[n]
+            }
+        } else {
+            newobj = obj
+        }
+        return newobj
+    }
+
+    father = {thename: 'father'}
+    obj.__proto__ = father
+    let newobj1 = deepclone(obj)
+
+    console.log(obj)
+    console.log(newobj)
+
+
+</script>
+</body>
+</html>

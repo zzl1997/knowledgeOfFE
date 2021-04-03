@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<script>
+			function loadXMLDoc(){
+				var xmlhttprequest
+				if(window.XMLHttpRequest){
+					xmlhttprequest=new XMLHttpRequest()
+				}else{
+					xmlhttprequest= new ActiveXObject('Microsoft.XMLHTTP')
+				}
+				
+				console.log(xmlhttprequest)
+				xmlhttprequest.onreadystatechange=function	(){
+					if(xmlhttprequest.status==200 &&xmlhttprequest.readyState===4){
+						document.querySelector('#myDiv').innerHTML=xmlhttprequest.responseText
+					}
+				}
+				console.log(xmlhttprequest.readyState)
+				xmlhttprequest.open('GET','./demo.txt',true)
+				console.log(xmlhttprequest.readyState)
+				xmlhttprequest.send()
+				console.log(xmlhttprequest)
+			}
+</script>
+	</head>
+	<body>
+
+		<div id="myDiv">
+			<h2>使用 AJAX 修改该文本内容</h2>
+		</div>
+		<button type="button" onclick="loadXMLDoc()">修改内容</button>
+		
+		<div style="padding:10px; border:5px solid blue; margin: 10px; width:300px; box-sizing: border-box;">
+		    之前看过一篇文章，叫做《浏览器工作原理：新式网络浏览器幕后揭秘》，
+		    文章言简意赅的介绍的浏览器的工作过程，web前端
+		    之前看过一篇文章，叫做《浏览器工作原理：新式网络浏览器幕后揭秘》，
+		    文章言简意赅的介绍的浏览器的工作过程，web前端
+				之前看过一篇文章，叫做《浏览器工作原理：新式网络浏览器幕后揭秘》，
+				文章言简意赅的介绍的浏览器的工作过程，web前端
+				之前看过一篇文章，叫做《浏览器工作原理：新式网络浏览器幕后揭秘》，
+				文章言简意赅的介绍的浏览器的工作过程，web前端
+		</div>
+<p style="background-color: #00FF00; height: 100px; margin: 50px 0;">
+	yes
+</p>
+<p style="background-color: #ADD8E6; height: 100px; margin: 100px 0;">
+	no
+</p>
+
+	</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+    let xmlhttp
+    if (window.XMLHttpRequest) {
+        xmlhttp = new XMLHttpRequest()
+    }
+
+    xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.status === 200 && xmlhttp.readyState == 4) {
+            // alert(xmlhttp.responseText)
+        }
+    }
+    xmlhttp.open('GET', 'demo.txt', true)
+    xmlhttp.send()
+</script>
+</body>
+</html>

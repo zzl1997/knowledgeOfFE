@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			// 类数组转化为数组的方法
+			// 1.ES6提供了Array.from(类数组)方法
+			// 2.扩展运算符[...类数组就是一个数组]
+			// 3.通过数组的 数组.slice.call(类数组),让类数组调用slice()方法
+
+			var arr = [1, 1, 'true', 'true', true, true, 15, 15, false, false, undefined, undefined, null, null, NaN, NaN, 'NaN',
+				0, 0, 'a', 'a', {}, {}
+			];
+
+			console.log(Array.from(new Set(arr)))
+			// [1, "true", true, 15, false, undefined, null, NaN, "NaN", 0, "a", {}, {}]
+		</script>
+	</body>
+</html>

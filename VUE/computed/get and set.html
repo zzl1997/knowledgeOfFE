@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>基本框架</title>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	</head>
+
+	<body>
+		<div id="app">
+			<h2>{{ myname='zhaozilun'}}</h2>
+			<!-- 1.这里将这个computed属性重写的时候，就会触发set -->
+			<h2>{{myname}}</h2>
+			<!-- 2.然后在这里的出发了set -->
+		</div>
+		<script type="text/javascript">
+			let app = new Vue(
+			{
+				el: '#app',
+				data:
+				{
+					name: 'zzl'
+				},
+				methods:
+				{},
+				computed:
+				{
+					myname:
+					{
+						set(name)
+						{
+							this.name = name + '!!!'
+						},
+						get()
+						{
+							return this.name
+						}
+					}
+				}
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+<body>
+<script type="text/javascript">
+    function mynew(Fn, ...args)
+    // 输入,父类fn,构造参数...args
+    {
+        let instance = Object.create(Fn.prototype)
+        // 写这句话的意思其实就是说,,,instance.__proto__=fn.prototype
+        //
+        // 把this指向当前实例，然后在构造函数里面走一遍
+        let res = Fn.apply(instance, args)
+        // 现在看看res是不是有东西,也就是说fn不清楚有没有返回语句,res不知道能不能用
+        return typeof res === 'object' ? res : instance
+
+
+    }
+
+    function Person(name) {
+        this.name = name
+
+    }
+
+    let instance = mynew(Person, 'zzl')
+    console.log(instance);
+</script>
+</body>
+</html>

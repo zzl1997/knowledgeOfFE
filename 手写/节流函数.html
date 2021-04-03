@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+<body>
+
+</script>
+<script type="text/javascript">
+    // 节流函数：点击按钮之后，触发事件之后产生一定的冷却时间，然后才能重新触发
+    // 传入一个执行的函数和一个延迟时间，然后返回一个函数，这个函数在一段时间里面只能被
+    // 触发一次
+
+
+    function throttle(func, delay) {
+        let timer
+        return function (...args) {
+            if (timer) {
+                return
+            } else {
+                timer = setTimeout(() => {
+                    func.apply(this, args)
+                    timer = null
+                }, delay * 1000)
+            }
+        }
+    }
+
+    function show(data) {
+        console.log(data)
+    }
+
+    let click = throttle(show, 1)
+    click(1)
+    click(2)
+    click(3)
+    click(4)
+    // function throttle(func, delay) {
+    //     var run = true
+    //     return function () {
+    //         if (!run) {
+    //             return
+    //         }
+    //
+    //         run = false
+    //         setTimeout(() => {
+    //                 func()
+    //                 run = true
+    //             },
+    //             delay * 1000)
+    //     }
+    // }
+    //
+    // var func = function () {
+    //     console.log(1)
+    // }
+    // // func()
+    // var jieliu = throttle(func, 1)
+    // jieliu()
+    // jieliu()
+    // jieliu()
+    // jieliu()
+
+    // sleep(1)
+    // sleep(1)
+    // console.log(2)
+    // jieliu()
+</script>
+</body>
+</html>

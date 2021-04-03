@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <style>
+      #chart div {
+          display: inline-block;
+          background: #4285F4;
+          width: 20px;
+          margin-right: 3px;
+      }
+  </style>
+</head>
+<body>
+<div id="chart">
+
+</div>
+
+<script>
+    var c = d3.select('#chart')
+        .selectAll("div")
+        .data([4, 8, 15, 16, 23, 42])
+        .enter()
+        .append("div")
+        .style("height", (d) => d + "px")
+    console.log(c)
+</script>
+</body>
+</html>

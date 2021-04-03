@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function a()
+			{
+				a = 1
+				b = 2
+				return () =>
+				{
+					console.log(a)
+
+				}
+			}
+			var demo = a()
+			demo()
+		</script>
+	</body>
+</html>

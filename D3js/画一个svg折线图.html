@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+      #chart path {
+          fill: transparent;
+          stroke: green;
+      }
+  </style>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+
+</head>
+<body>
+<svg id="chart" height="100" width="200">
+  <path stroke-width="2" d="M0,70L50,80L100,60L150,20L200,5"></path>
+</svg>
+<hr>
+<div id="chart1"></div>
+<hr>
+<svg id="chart" width="200" height="100"></svg>
+
+<script>
+    var data = [
+        {x: 0, y: 30},
+        {x: 50, y: 20},
+        {x: 100, y: 40},
+        {x: 150, y: 80},
+        {x: 200, y: 95}
+    ]
+
+    var line = d3.svg.line()
+        .x((d) => d.x)
+        .y((d) => 100 - d.y)
+        .interpolate("basis")
+
+    d3.select('#chart')
+        .append("path")
+        .attr('stroke-width', 2)
+        .attr('d', line(data))
+</script>
+</body>
+
+</html>

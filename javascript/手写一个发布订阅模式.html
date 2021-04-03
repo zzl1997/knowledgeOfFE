@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		1
+		<a href="		https://blog.csdn.net/weixin_44145258/article/details/106664858
+"> 修改的话参考链接：https://blog.csdn.net/weixin_44145258/article/details/106664858</a>
+
+		<script type="text/javascript">
+			class EventHub
+			{
+				constructor()
+				{
+					this.cache = {}
+				}
+
+				on(eventname, fn)
+				{
+					if (this.cache[eventname] === undefined)
+					{
+						this.cache[eventname] = []
+					}
+					this.cache[eventname].push(fn)
+				}
+				// 注册事件,事件类型,函数
+				emit(eventname, ...args)
+				// 触发一个事件, 事件名称
+				{
+					let arr = this.cache[eventname]
+					if (arr === undefined)
+					{
+						arr = []
+					}
+					arr.forEach((fn) => { fn(...args) })
+
+				}
+				off(eventname, fn)
+				{
+					var index = this.cache[eventname].indexOf(fn)
+					this.cache[eventname].splice(index, 1)
+				}
+				// 取消订阅一种事件,函数
+			}
+			var eventhub = new EventHub()
+			let called = false
+			eventhub.on("xxxx", (data) =>
+			{
+				called = true
+				console.log("called: ", called);
+				console.log(data)
+			})
+			eventhub.emit('xxxx', '赵梓伦很帅')
+		</script>
+	</body>
+</html>

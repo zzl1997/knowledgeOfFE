@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<hr>
+使用get请求，一般关键字就在url里面，比如一个
+<h2>http://wthrcdn.etouch.cn/weather_mini?city=北京</h2>
+<hr>
+使用post请求的时候,url是一个单纯的url，就像
+<h2>http://demo.php</h2>
+而我们会在send（）里面写好我们的参数，就像
+<div>
+  <h2>
+    fname=Henry&lname=Ford
+  </h2>
+</div>
+<hr>
+<div>
+  二者的主要区别就在于：
+  <h2>
+    get请求可以被缓存，不应该用于处理敏感数据，get由于浏览器其长度会被限制，get应当只用于取回数据
+  </h2>
+  <h2>
+    post请求不会被缓存，url长度没有限制
+  </h2>
+
+</div>
+<script>
+    let xmlhttp = new XMLHttpRequest()
+    xmlhttp.open('GET', 'http://wthrcdn.etouch.cn/weather_mini?city=北京')
+    xmlhttp.setRequestHeader('MyHeader', 'MyValue')
+    xmlhttp.send()
+
+    xmlhttp = new XMLHttpRequest()
+    xmlhttp.open("POST", "http://demo.php", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.send("fname=Henry&lname=Ford");
+</script>
+</body>
+</html>

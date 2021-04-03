@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>菜鸟教程(runoob.com)</title>
+		<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js">
+		</script>
+		<script>
+			// get函数用于向服务器提交请求
+			$.get("./src/demo.php", function(data, status)
+
+				// jquery中:
+				// "./demo.php"是传入的url
+				// 第二个参数是回调函数，请求成功后执行
+				//  回调函数中,data是请求得到的数据,status是这次请求的状态
+
+				{
+					alert("数据: " + data + "\n状态: " + status);
+				});
+
+			$.post("./src/demo/php",
+			{
+				param1:'somebala',
+				param2:'somebala'
+
+			},function(data,status){
+				console.log(data+"\n"+status)
+			})
+			
+			// 报错:
+			// Failed to load resource: the server responded with a status of 404 (Not Found)
+
+		</script>
+	</head>
+	<body>
+
+
+	</body>
+</html>

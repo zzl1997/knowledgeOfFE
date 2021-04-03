@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-sacle=0.5">
+
+		<title></title>
+	</head>
+	<style type="text/css">
+		.hr {
+			height: 1px;
+			transform: scaleY(2);
+			/* 这个鼠标表示在y轴上面缩放 */
+			background-color: #000000;
+		}
+
+		.hr2 {
+			height: 1px;
+			background: linear-gradient(0deg, #000, #fff);
+		}
+		.hr3{
+			height: 1px;
+			background-color: #000000;
+		}
+	</style>
+	<body>
+
+		<p>第一个种办法，把y轴放大一倍，这样1个像素就变成了0.5个 </p>
+		<div class="hr1"></div>
+		<p>第二种方法，线性变换指定从上到下从黑色过渡到白色，但是由于高度只有1px，所以黑色占据0.5px</p>
+		<div class="hr2">
+		</div>
+		<span> 第三种方法，直接用viewport把手机放大两倍，然后画一个1px的线</span>
+		<div class="hr3">		
+		
+		</div>
+	</body>
+</html>
+
+<!-- 问：为什么要画0.5px的线条？
+答：因为，像素是屏幕显示的最小的单位，一个一个像素点构成了我们的字体和图像
+ -->

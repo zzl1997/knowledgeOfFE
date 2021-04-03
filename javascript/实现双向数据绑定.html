@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Document</title>
+	</head>
+	<body>
+		<p id="a" style="height: 50px;background-color:greenyellow"></p>
+		<hr>
+		<input type="text" id="b">
+		<script type="text/javascript">
+			var person = {}
+			var name = null
+			Object.defineProperty(person, name,
+			{
+				get: function() { return name },
+				set: function(newvalue) { name = newvalue }
+			})
+			var a = document.getElementById('a')
+			var b = document.getElementById('b')
+			b.addEventListener('input', function(e)
+			{
+				person.name = e.target.value
+				a.innerText = person.name
+			})
+		</script>
+	</body>
+	<!-- <script src="./2.js"></script> -->
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <style>
+      #chart div {
+          display: inline-block;
+          background: #4285F4;
+          width: 20px;
+          height: 20px;
+          margin-right: 3px;
+      }
+  </style>
+</head>
+<body>
+<div id="chart">
+
+</div>
+
+<script>
+    const colorMap = d3.interpolateRgb(
+        d3.rgb('#d6e685'),
+        d3.rgb('#1e6823')
+    )
+
+    let a = d3.select('#chart')
+        .selectAll("div")
+        .data([.2, .4, 0, 0, .13, .92])
+        .enter()
+        .append("div")
+        .style("background-color", (d) => {
+            return d == 0 ? '#eee' : colorMap(d)
+        })
+    console.log(a)
+</script>
+</body>
+</html>

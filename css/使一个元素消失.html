@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<style>
+		div {
+			width: 200px;
+			height: 200px;
+			background: #ccc;
+			margin-top: 10px;
+		}
+
+		.div1 {
+			display: none;
+		}
+
+		.div2 {
+			visibility: hidden;
+		}
+
+		.div3 {
+			opacity: 0;
+		}
+	</style>
+	<body>
+		<p>display:none直接让元素消失，这个属性不会被子元素继承</p>
+		<div class="div1">
+
+			<p>display:none</p>
+		</div>
+
+		<p>而visibility:hidden和opacity:0元素虽然隐藏了，但不会改变页面布局
+
+		</p>
+		<p>display:none 的元素都已经不再页面存在了，因此肯定也无法触发它上面绑定的事件；
+
+			visibility:hidden 元素上绑定的事件也无法触发；
+
+			opacity: 0元素上面绑定的事件是可以触发的。</p>
+		<div class="div2">
+			<p>visibility:visible</p>
+		</div>
+		<div class="div3">
+			<p>opacity:0</p>
+		</div>
+
+</html>

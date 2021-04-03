@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Document</title>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+		<style>
+			#app {
+				width: 600px;
+				margin: 100px;
+				background-color: #8bacc3;
+				padding: 10px;
+				box-shadow: 10px 10px 5px #888888;
+				;
+			}
+
+			ul {
+				list-style: none;
+			}
+
+			ul li {
+				margin: 20px;
+			}
+
+			button {
+				float: right;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<my-music :music='list'>
+				<template v-slot:default='obj'>
+					<button @click=del(obj.zzz.id)>删除</button>
+				</template>
+			</my-music>
+		</div>
+		<script src="./vue.js"></script>
+		<script>
+			// 子组件
+			Vue.component('my-music',
+			{
+				template: `
+    <div>
+      <h2>歌词收录</h2>
+      <ul>
+        <li v-for='item in music'>
+           {{item.classical}}
+           <slot :zzz='item'></slot>
+        </li>
+      </ul>
+    </div>
+    `,
+				props: ['music']
+			})
+
+			const vm = new Vue(
+			{
+
+				// 这是父组件
+				el: '#app',
+				data:
+				{
+					msg: 'hello vue',
+					// 父组件的数据
+					list: [
+					{
+						id: 1,
+						classical: '红雨瓢泼泛起了回忆怎么潜'
+					},
+					{
+						id: 2,
+						classical: '执子手吹散苍茫茫烟波'
+					},
+					{
+						id: 3,
+						classical: '就回来吧 回来吧 有人在等你呢'
+					}, ]
+				},
+				methods:
+				{
+					// 父组件的删除方法
+					del(id)
+					{
+						console.log(id);
+						this.list = this.list.filter(item => item.id !== id)
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

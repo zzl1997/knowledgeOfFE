@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function deepclone(obj)
+			{
+				let copy = typeof obj === "object" ? {} : [];
+				// 这个判断的主要是obj是数组还是对象
+				for (let n in obj)
+				{
+					// console.log(n)
+					// 看看属性是不是引用了,如果是简单的值直接赋值,如果是引用类型传入这个引用类型,
+					// 返回它的deepcopy类型
+					copy[n] = typeof obj[n] === 'object' ? deepclone(obj[n]) : obj[n]
+				}
+				return copy
+			}
+			var objA = {
+				a: 'aa',
+				b: 'bb'
+			};
+			var objB = deepclone(objA)
+			console.log(objB)
+		</script>
+	</body>
+</html>
