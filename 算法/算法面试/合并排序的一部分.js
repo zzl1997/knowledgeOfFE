@@ -1,5 +1,7 @@
 let nums1 = [1,2,3]
 let nums2 = [2,5,6]
+
+
 function  merge(num1,num2){
     let i=num1.length-1
     let j=num2.length-1

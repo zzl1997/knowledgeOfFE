@@ -1,0 +1,114 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    class Node {
+        constructor(key) {
+            this.key = key
+            this.left = null
+            this.right = null
+
+        }
+    }
+    class Tree {
+        constructor() {
+            this.root = null
+        }
+        insert(key) {
+            var node = new Node(key)
+            if (this.root === null) {
+                this.root = node
+            } else {
+                insertnode(this.root, node)
+            }
+            // 函数的定义：将节点插入指定位置的二叉排序树上去
+            function insertnode(nodepisiton, newnode) {
+                1
+                if (newnode.key <= nodepisiton.key) {
+                    if (nodepisiton.left === null) {
+                        nodepisiton.left = newnode
+                    } else {
+                        insertnode(nodepisiton.left, newnode)
+                    }
+                } else {
+                    if (nodepisiton.right === null) {
+                        nodepisiton.right = newnode
+                    } else {
+                        insertnode(nodepisiton.right, newnode)
+                    }
+                }
+            }
+        }
+        // 函数定义：对于一个二叉树，遍历其树
+        inorder(root) {
+
+            if (root !== null) {
+                this.inorder(root.left)
+                console.log(root.key)
+                this.inorder(root.right)
+            }
+
+
+        }
+    }
+
+    var bintree = new Tree()
+    bintree.insert(7);
+    bintree.insert(15);
+    bintree.insert(5);
+    bintree.insert(3);
+    bintree.insert(9);
+    bintree.insert(8);
+    bintree.insert(10);
+    bintree.insert(13);
+    bintree.insert(12);
+    bintree.insert(14);
+    bintree.insert(20);
+    bintree.insert(18);
+    bintree.insert(25);
+
+    // bintree.inorder(bintree.root)
+    // 计算二叉树有几个节点？输入是 树的根节点，返回的是树的节点的个数
+    function count(root) {
+        if (root == null) { return 0 }
+        return 1 + count(root.left) + count(root.right)
+
+    }
+    console.log(count(bintree.root))
+    // 对于一棵树，我们输入树的根节点，我们得到一个已经翻转好的子树
+    function fanzhuan(root) {
+        if (root == null) {
+            return null
+        }
+        [root.left, root.right] = [root.right, root.left]
+        fanzhuan(root.left)
+        fanzhuan(root.right)
+    }
+function tarverse(root){
+    if(root===null){return}
+    tarverse(root.left)
+    console.log(root.key)
+    tarverse(root.right)
+}
+
+tarverse(bintree.root)
+
+function isvalidbst(root){
+    if(root==null){return true}
+    if(root.left!==null &&root.val <= root.left.val)
+
+
+    
+}
+
+</script>
+
+</html>

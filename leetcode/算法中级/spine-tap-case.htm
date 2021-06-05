@@ -1,0 +1,44 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    function fun1(str) {
+        var res = ""
+        for (let i = 0; i < str.length; i++) {
+            if (str[i]===" "|| str[i]==="_"){
+                res+="-"
+            }else if(/[A-Z]/.test(str[i])){
+                if(/[a-z]/.test(str[i-1]) && str[i-1]){
+                    res+=`-${str[i].toLowerCase()}`
+                }
+                else{
+                    res+=str[i].toLowerCase()
+                }
+            }
+            else{
+                res=res+str[i]
+            }
+            
+        }
+        return res
+    }
+
+
+    console.log(fun1('This Is Spinal Tap'))
+    console.log(fun1('thisIsSpinalTap'))
+    console.log(fun1('TheAndyGriffith_Show'))
+    console.log(fun1('Teletubbies say Eh-oh'))
+    console.log(fun1('AllThe-small Things'))
+
+
+</script>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,68 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var string = 'the quick brown fox jumped over the laziest'
+        function find1(string) {
+
+            var result = 0
+            temp = 0
+            for (let i = 0; i < string.length; i++) {
+                if (string[i] === " ") {
+                    result = Math.max(result, temp)
+                    temp = 0
+                } else {
+
+                    temp++
+                }
+
+
+            }
+            result = Math.max(result, temp)
+            return result
+        }
+        console.log(find1(string))
+
+        function find2(string) {
+            var arr = string.split(" ")
+            result = 0
+            for (let i = 0; i < arr.length; i++) {
+                result = Math.max(result, arr[i].length)
+            }
+            return result
+        }
+
+
+        console.log(find2(string))
+
+
+        function find3(string){
+            var arr=string.split(" ").map(function(elem){return elem.length})
+
+            return Math.max.apply(null,arr)
+
+
+        }
+
+        console.log(find3(string))
+
+
+        function find4(string){
+            var arr=string.split(" ").map(function(elem){return elem.length})
+
+            return Math.max(...arr)
+
+
+        }
+        console.log(find4(string))
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -43,14 +43,16 @@
         if (typeof obj == 'object') {
             newobj = obj.constructor === Array ? [] : {}
             for (let n in obj) {
-                newobj[n] = typeof obj[n] === 'object' ? deepclone(obj[n]) : obj[n]
+                if (obj.hasOwnProperty(n)) {
+                    newobj[n] = typeof obj[n] === 'object' ? deepclone(obj[n]) : obj[n]
+                }
             }
         } else {
             newobj = obj
         }
         return newobj
     }
-
+    
     father = {thename: 'father'}
     obj.__proto__ = father
     let newobj1 = deepclone(obj)

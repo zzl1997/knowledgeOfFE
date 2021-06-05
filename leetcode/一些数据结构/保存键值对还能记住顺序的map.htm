@@ -1,0 +1,58 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    var map = new Map()
+    // it is a hash table ,surprisingly ,it can preserve the order!!!
+    // add the key-value pairs
+    map.set("the front is the key", 'the second is the value')
+    map.set("1", "something")
+    map.set('2', 'another thing')
+
+    // has the key?
+    console.log(map.has("1"))
+
+    // get the value according to key
+    console.log(map.get("1"))
+
+    // delete the key: value pairs
+    map.delete("1")
+    console.log(map)
+
+
+    // I want to iterate this map
+
+    for (let [key, value] of map) {
+        console.log(key + ":" + value)
+        // when you want to insert a string in console.log ,just double plus and double quote at the positon
+    }
+
+    let kvArray = [
+        ["key1", "value1"],
+        ["key2", "value2"]]
+
+
+        ;
+    var map1 = new Map(kvArray)
+    // 二维数组的每一行都是只有两个值，那就可以被初始化成为键值对
+    console.log(map1)
+
+
+function runnian(year){
+    if(year%4===0 ||(year%400===0 &&  )){
+        console.log('runnian')
+    }else{
+        console.log('fei')
+    }
+}
+</script>
+
+<body>
+
+</body>
+
+</html>

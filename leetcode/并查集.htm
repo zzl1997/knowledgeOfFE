@@ -1,0 +1,51 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    class un {
+        constructor(n) {
+            this.count= n
+            this.parent = new Array(n)
+            for (let i = 0; i < this.parent.length; i++) {
+                this.parent[i] = i
+            }
+        }
+        union(p, q) {
+            var rootp = this.findroot(p)
+            var rootq = this.findroot(q)
+
+            if (rootp == rootq) 
+            { return } 
+            else {
+                this.parent[rootq] = rootq
+            }
+            this.count--
+
+        }
+        findroot(x) {
+            while (this.parent[x] !== x) {
+                this.parent[x] = this.parent[this.parent[x]]
+                x = this.parent[x]
+            }
+            return x
+        }
+    }
+var  a=new un(10)
+a.union(1,2)
+a.union(3,4)
+a.union(5,6)
+
+console.log(a.count)
+
+
+</script>
+
+</html>

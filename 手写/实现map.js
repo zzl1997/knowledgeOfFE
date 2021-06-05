@@ -17,7 +17,6 @@ Array.prototype.Map = function (fn, context) {
     return mappedArr
 }
 
-
 arr = arr.Map((item) => {
     return item + 1
 })

@@ -62,3 +62,23 @@ str.replace(/(\w)\1+/g, function (啊, 吧, 存) {
 })
 console.log(`字符最多的是${char}，出现了${num}次`);
 
+
+// replace 与捕获组
+
+
+//将rgb颜色的类型转换为16进制的类型 例如：rgb（255,255,255）转换为 #ffffff
+function rgb2hex(sRGB) {
+    sRGB.replace(/^rgb\((\d+)\s*\,\s*(\d+)\s*\,\s*(\d+)\)$/g, function (a, r, g, b) {
+        console.log(a, r, g, b);
+    });
+}//replace()方法中函数的第一个参数是正则匹配到的字符，后三个参数分别是三个捕获组
+
+rgb2hex('rgb(255,255,255)')
+
+///////////
+let srgb = 'rgb(255,255,255)'
+reg = /[\d]/
+ res=srgb.match(reg)
+console.log()
+
+

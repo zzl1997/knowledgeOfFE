@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+<h2>
+  对于data为什么是函数而且要返回一个对象来说的话，如果组件不复用，那自然是可以，但是一旦涉及到组件的复用，
+  那就需要为每一个组件都维护一个存放数据的空间
+</h2>
+<div id="app">
+  <h1 v-once>{{str}}</h1>
+<button @click="change">改变上面的zzl 的值</button>
+</div>
+<h2>
+  你会发现使用了v-once指令的标签只会渲染一次，之后是改变不了的
+</h2>
+<script>
+    new Vue({
+        el: '#app',
+        data:{
+            str:'zzl'
+        }
+        ,
+        methods:{
+            change(){
+                this.str='another'
+            }
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+      #box1 {
+          text-align: center;
+          line-height: 100px;
+          margin: 40px;
+      }
+  </style>
+</head>
+<body>
+<hr>
+<h2>可以发现 ：元素.style.xxx只适用于内联样式</h2>
+<div id="box1" style="height: 100px; background-color: red"></div>
+<script>
+    let box1 = document.getElementById('box1')
+    box1.innerHTML = box1.style.height + box1.style.margin
+
+</script>
+<hr>
+<h2>clientwidth=content+padding</h2>
+<h2>offsetwidth=content+padding+border</h2>
+<h2>浏览器用getcomputedStyle获取元素宽度</h2>
+<h2>window.getComputedStyle('元素'，null).backgroundColor</h2>
+</body>
+</html>

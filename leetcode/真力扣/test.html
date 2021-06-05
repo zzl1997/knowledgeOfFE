@@ -1,0 +1,74 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script> 
+    /**
+     * @param {string} date
+     * @return {number}
+     */
+  <!--
+     var dayOfYear = function (date) {
+        var feirunjian = new Array(13)
+        feirunjian[1] = 31
+        feirunjian[3] = 31
+        feirunjian[5] = 31
+        feirunjian[7] = 31
+        feirunjian[8] = 31
+        feirunjian[10] = 31
+        feirunjian[12] = 31
+
+        feirunjian[4] = 30
+        feirunjian[5] = 30
+        feirunjian[6] = 30
+        feirunjian[9] = 30
+        feirunjian[11] = 30
+        feirunjian[2] = 28
+
+        var runnian = new Array(13)
+        runnian[1] = 31
+        runnian[3] = 31
+        runnian[5] = 31
+        runnian[7] = 31
+        runnian[8] = 31
+        runnian[10] = 31
+        runnian[12] = 31
+
+        runnian[4] = 30
+        runnian[5] = 30
+        runnian[6] = 30
+        runnian[9] = 30
+        runnian[11] = 30
+        runnian[2] = 29
+        // 2019 - 02 - 10
+        var year = parseInt(date.slice(0, 4))
+        var month = parseInt(date.slice(5, 7))
+        var day = parseInt(date.slice(8))
+        // console.log(year)
+        if ((year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0)) {
+            var sum = 0
+            for (let i = 1; i <= month - 1; i++) {
+                sum += runnian[i]
+            }
+            return day + sum
+        } else {
+            var sum = 0
+            for (let i = 1; i <= month - 1; i++) {
+                sum =sum+ feirunjian[i]
+            }
+            return day + sum
+
+        }
+    };
+    console.log((dayOfYear("1969-09-28")))
+//-->
+</script>
+
+</html>

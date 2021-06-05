@@ -1,0 +1,124 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    function print(i, j) {
+        if (i == j) {
+            console.log(i)
+            return
+        }
+        console.log(i)
+        print(i + 1, j)
+    }
+    // print(4, 6)
+
+    // 从j到i倒着打印数字
+    function daoxu(i, j) {
+        if (j == i) {
+            console.log(i)
+            return
+        }
+        daoxu(i + 1, j)
+        console.log(i)
+    }
+
+    // daoxu(4,6)
+
+
+    // 输入一个数组，输出数组内的总和
+    function sum(arr) {
+        if (arr.length === 0) {
+            return null
+        }
+        if (arr.length === 1) {
+            return arr[0]
+        }
+        return sum(arr.slice(1)) + arr[0]
+    }
+
+    // console.log(sum([1,2,3]))
+
+    function reversestring(string) {
+        if (string.length === 1) {
+
+            return (string[0])
+
+        }
+        return (reversestring(string.slice(1)) + string[0])
+
+
+    }
+
+    // console.log(reversestring('abcd'))
+
+    // 返回m，n的最大公约数，其中比较小的数要放在最大公约数上
+
+    function gcd(m, n) {
+        if (m % n == 0) {
+            return n
+        }
+        return gcd(n, m % n)
+
+    }
+    console.log(gcd(36 * 12, 24))
+
+    // 将排序从0-n的arr数组
+    function insert_sort(arr, n) {
+        if (n == 0) {
+            return
+        }
+        insert_sort(arr, n - 1)
+        var x = arr[n]
+        var index = n - 1
+        while (index >= 0 && arr[index] > x) {
+            [arr[index], arr[index + 1]] = [arr[index + 1], arr[index]]
+            index--
+        }
+
+
+    }
+
+    //    var demo= [3,2,1]
+
+    //    insert_sort(demo,demo.length-1)
+    //    console.log(demo)
+
+    // 汉诺塔
+    function hannuo(n, source, dest, help) {
+        if (n === 1) {
+            console.log("盘子" + n + "从" + source + "移到" + dest + "")
+        }
+        hannuo(n - 1, source, help, dest)
+        console.log("把第" + n + "个盘子从" + source + "移到" + dest + "")
+        hannuo(n - 1, help, dest, source)
+    }
+
+    // hannuo(3 , "A" , "B" , "C")
+
+    // 我们输入一个数组以及起点和终点索引，然后查找数组中的key，如果找到，返回索引
+    function binary_search(key, arr, low, high) {
+        var mid = (low + high) / 2
+        if (low < high) { return -1 }
+        if (arr[mid] === key) {
+            return mid
+        }
+        if (arr[mid] > key) {
+            binary_search(key, arr, low, mid - 1)
+        } else {
+            binary_search(key, arr, mid + 1, high)
+        }
+    }
+
+    bin_arr = [1, 2, 3, 5, 6, 7, 9, 11, 13, 16]
+    console.log(binary_search(7, bin_arr, 0, bin_arr.length))
+</script>
+
+</html>

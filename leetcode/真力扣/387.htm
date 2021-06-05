@@ -1,0 +1,41 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /**
+ * @param {string} s
+ * @return {number}
+ */
+        var firstUniqChar = function (s) {
+            // 思路：
+            // 循环遍历字符串，对于当前字符，向后搜索字符串，观察是否有相等的字符，一旦有，跳出循环
+            // 若没有，返回当前字符
+
+            for (let i = 0; i < s.length; i++) {
+                if (check(i + 1, s[i])) {
+                    return i
+                }
+            }
+            return -1
+
+            function check(index, char) {
+                for (let i = index; i < s.length; i++) {
+                    if (char == s[i]) {
+                        return false
+                    }
+                }
+                return true
+            }
+        };
+        console.log(firstUniqChar("cc"))
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

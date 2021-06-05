@@ -1,0 +1,50 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+</body>
+<script>
+    function f(n) {
+        if (n == 1) { return 1 }
+        if (n == 2) { return 1 }
+        if (n > 2) {
+            return f(n - 1) + f(n - 2)
+        }
+    }
+    function f(n) {
+        if (n <= 2) {
+            return 1 
+            //  对于这种，if判断直接判断的语句，我们想一想，判断为真时，进入内部执行，
+            //  然后直接return，所以下面的else就执行不到，所以写不写else其其执行顺序都是
+            // 一样的，判断为真的时候，直接return，判断为假时，执行下面的语句
+        } 
+        
+        else {
+            return f(n - 1) + f(n - 2)
+        }
+
+    }
+    function f(n) {
+        if (n <= 2) {
+            return 1 
+            //  对于这种，if判断直接判断的语句，我们想一想，判断为真时，进入内部执行，
+            //  然后直接return，所以下面的else就执行不到，所以写不写else其其执行顺序都是
+            // 一样的，判断为真的时候，直接return，判断为假时，执行下面的语句
+        } 
+        
+      
+            return f(n - 1) + f(n - 2)
+        
+
+    }
+    console.log(f(4))
+</script>
+
+</html>

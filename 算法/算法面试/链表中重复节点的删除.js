@@ -14,6 +14,7 @@ while (value.length) {
     cur = cur.next
 }
 
+
 function remove_dupllicate(head) {
     let cur = head.next
     while (cur.next !== null && cur != null) {
@@ -30,7 +31,7 @@ console.log(remove_dupllicate(head));
 console.log()
 value = [1, 1, 2, 2, 3, 3, 4, 5]
 head = new listNode()
-cur=head
+cur = head
 while (value.length) {
     let node = new listNode(value.shift())
     cur.next = node
@@ -38,6 +39,7 @@ while (value.length) {
 }
 
 // 上述的节点会留一个，下面的算法则是一个都不留
+
 function remove_duplicate_all(head) {
     let cur = head
     while (cur.next.next && cur.next) {
@@ -52,5 +54,6 @@ function remove_duplicate_all(head) {
     }
     return head.next
 }
+
 
 console.log(remove_duplicate_all(head));

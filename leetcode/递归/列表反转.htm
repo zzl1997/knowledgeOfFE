@@ -1,0 +1,53 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        class listnode {
+            constructor(val) {
+                this.val = val
+                this.next = null
+            }
+        }
+        var l1 = new listnode(1)
+        var l2 = new listnode(2)
+        var l3 = new listnode(3)
+        var l4 = new listnode(4)
+        l1.next =  l2
+        l2.next =  l3
+        l3.next =  l4
+
+        function traverse(head) {
+            if (head == null) {
+                return head
+            }
+            var cur = head
+            while (cur) {
+                console.log(cur.val)
+                cur = cur.next
+            }
+
+        }
+        // traverse(l1)
+
+        // 函数的意思就是，反转一个链表，输出的是链表的头结点，输出的是反转链表的头结点
+        function reverse(head){
+            if(head===null || head.next===null){
+                return head
+            }
+            var result=reverse(head.next)
+            head.next.next=head
+            head.next=null
+            return result
+        }
+        traverse(reverse(l1))
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

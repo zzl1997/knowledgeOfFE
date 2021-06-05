@@ -5,7 +5,6 @@ let demo = {
     show(data) {
         console.log(data)
         console.log(this.name)
-
     }
 }
 let func1 = demo.show
@@ -24,7 +23,6 @@ Function.prototype.mybind = function (contex, ...args) {
     return function (...args2) {
         let allagrs = args.concat(args2)
         return fn.apply(contex, allagrs)
-
     }
 }
 

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<h1>可以看到，margin发生了重叠</h1>
+<div style="background-color: red;height: 100px ;overflow: hidden ;margin: 100px 0"></div>
+<div style="background-color: red;height: 100px;overflow: hidden ;margin: 200px 0"></div>
+<hr>
+<h2>left由于浮动布局会脱离文档流，right元素和left会重叠，设置right为BFC可以避免浮动元素带来的元素重叠</h2>
+<section style="height: 300px ;background-color: gray">
+  <div style=" height: 100px;width: 100px;background-color: yellow ;float: left"></div>
+  <div style="background-color: green ;height: 300px;overflow: hidden"></div>
+</section>
+<hr>
+
+
+<div id="zzl" style="border: solid 1px red ;overflow: hidden">
+  <div style="height: 100px ;float: left;background-color: yellow">设置为float之后，元素的display就变为block，float脱离文档流，父元素塌陷
+    <div>
+      这个时候把父元素设置为BFC就可以清除浮动，父元素的高度也正常
+    </div>
+  </div>
+</div>
+
+<script>
+    let zzl = document.getElementById('zzl')
+    console.log(window.getComputedStyle(zzl).height)
+</script>
+</body>
+</html>

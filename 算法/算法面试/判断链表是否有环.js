@@ -4,6 +4,7 @@ class Node{
         this.next=null
     }
 }
+
 n3=new Node(3)
 n2=new Node(2)
 n0= new Node(0)
@@ -13,12 +14,15 @@ n2.next=n0
 n0.next=n_4
 n_4.next=n2
 
+
+
+
 function hasCycle(head){
     while(head){
-        if(head.flag===undefined){
-            head.flag=true
-            head=head.next
-        }else{
+        if (head.flag === undefined) {
+            head.flag = true
+            head = head.next
+        } else {
             return true
         }
     }

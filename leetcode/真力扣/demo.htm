@@ -1,0 +1,62 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    var isPalindrome = function (x) {
+        // 负数直接返回false
+        // 使用辗转想出发把x的从个位开始给取出来，由于这是反序的
+        // 所以最后比较这个反序的数组和x是不是不一样就可以了
+
+
+
+        if (x < 0) { return false }
+
+        var arr = []
+        var temp = x
+        while ((temp != 0)) {
+            arr.push(temp % 10)
+            temp = Math.floor(temp / 10)
+        }
+        return arr.toString() == x.toString()
+
+
+    }
+    // console.log(isPalindrome(121))
+
+
+
+    var removeElement = function (nums, val) {
+        // 1.循环遍历数组，当前值如果等于val的话：
+        //     将后面的值统统往前移，这个时候删除计数器累加一
+
+        //     最终，要不了整个数组，而是从0到 
+        // };
+        // [0,1,2,2,3,0,4,2] length=8 count=3
+        // 要前五个 slice(0,length-count+1)
+        var count = 0
+        for (let i = 0; i < nums.length; i++) {
+            if (nums[i] == val) {
+                count++
+                for (let j = i ; j < nums.length; j++) {
+                    nums[j] = nums[j + 1]
+                }
+            }
+        }
+        return nums.slice(0,nums.length-count)
+        // return nums
+    }
+
+    console.log(removeElement([3, 2, 2, 3]
+        , 3))
+</script>
+
+<body>
+
+
+</body>
+
+</html>

@@ -5,7 +5,6 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title></title>
 		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
-
 	</head>
 	<body>
 		<div id="app">{{yes+1}}</div>
@@ -24,8 +23,7 @@
 			var vm = new Vue(
 			{
 				el: "#app",
-				data:
-				{
+				data:{
 					yes: 'yes'
 				},
 				methods:
@@ -48,17 +46,20 @@
 					console.log(
 						`creadted 这个时候可以访问data和methods
 								比如this.$data.yes的值: ${this.$data.yes},
-								比如methods的值，执行函数show():${this.show()}
+								比如methods的值，执行函数show():${this.show()}，
+								但是不能访问挂载的模板
 					 `)
 				},
 				beforeMount()
 				{
 					console.log(`
-					beforemount 这个时候VUE编辑好了模板，
+					beforemount 这个时候VUE编辑好了模板，创建好了el，
 					假如在这里执行alert中断一下，你会看不到页面渲染，
 					而解析好的模板还在内存里面，
 					并没有挂载到页面对应的地方中去
 					`)
+					
+
 				},
 				mounted()
 				{

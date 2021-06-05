@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+姓名：<span id="spanname"></span>
+<input type="text" id="inputname">
+<script>
+    let spanname = document.getElementById('spanname')
+    let inputname = document.getElementById('inputname')
+    let obj = {
+        name: 'yes'
+    }
+    obj = new Proxy(obj, {
+        get(target, p, receiver) {
+            return target[p]
+        },
+        set(target, p, value, receiver) {
+            target[p] = value
+            observer()
+        }
+    })
+    function observer(){
+        spanname.innerText=obj.name
+        inputname.value=obj.name
+    }
+    setTimeout(()=>{observer()},1000)
+    inputname.oninput=function (e){
+        obj.name=(this.value)
+    }
+
+</script>
+</body>
+</html>

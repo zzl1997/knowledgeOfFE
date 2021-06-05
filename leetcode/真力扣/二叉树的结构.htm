@@ -1,0 +1,99 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    function TreeNode(val) {
+        this.val = val;
+        this.left = this.right = null;
+    }
+    node1 = new TreeNode(1)
+    node2 = new TreeNode(2)
+    node3 = new TreeNode(3)
+    node4 = new TreeNode(4)
+    node5 = new TreeNode(5)
+    node1.left = node2
+    node1.right = node3
+    node2.left = node4
+    node3.left = node5
+
+    function traverse(root) {
+        if (root) {
+            console.log(root.val)
+        }
+        if (root.left) {
+            traverse(root.left)
+        }
+        if (root.right) {
+            traverse(root.right)
+        }
+    }
+
+    traverse(node1)
+
+    function getdepth(root) {
+        if (root == null) {
+            return 0
+        }
+        var ll = getdepth(root.left)
+        var rl = getdepth(root.right)
+        return Math.max(ll, rl) + 1
+    }
+
+    // console.log(getdepth(node1))
+
+    function getdepth2(root) {
+        if (root == null) {
+            return 0
+        }
+
+        var queue = [root]
+        var res = 0
+
+        while (queue) {
+            var tmp = []
+            for (let i = 0; i < queue.length; i++) {
+                if (queue[i].left) {
+                    tmp.push(queue[i].left)
+                }
+                if (queue[i].right) {
+                    tmp.push(queue[i].right)
+                }
+            }
+            console.log(tmp)
+            queue = tmp
+            res++
+        }
+
+        return res
+    }
+    // console.log(getdepth2(node1))
+
+    function cengci(root) {
+        if (!root) {
+            return
+        }
+        queue = [root]
+        while (queue) {
+            var node = queue.shift()
+            console.log(node.val)
+            if (node.left) {
+                queue.push(node.left)
+
+
+            } if (node.right) {
+                queue.push(node.right)
+            }
+        }
+    }
+    // console.log(cengci(node1))
+</script>
+
+<body>
+
+</body>
+
+</html>

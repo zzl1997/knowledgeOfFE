@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>样式应用于非目标标签时</title>
+  <style>
+      div p{color: red};
+      #box{color: blue}
+  </style>
+</head>
+<body>
+<!-- 选中非目标元素的情况下，离目标越近者优先 -->
+<div id="box">
+  <p>
+    <span>神来之笔</span>
+  </p>
+</div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var c = function (num) {
+            return num % 2 == 0
+        }
+        var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+        function fun1(arr,fun){
+
+
+           return arr.filter(function(num){
+
+                return fun(num)
+            })[0]
+        }
+        console.log(fun1(arr,c))
+
+        function fun2(arr,fun){
+
+            return arr.filter(fun)[0]
+        }
+        console.log(fun2(arr,c))
+
+        function fun3(arr,c){
+            for(let i =0;i<arr.length;i++){
+
+                if(c(arr[i])){
+                    return arr[i]
+                }
+            }
+            return 
+        }
+        console.log(fun3(arr,c))
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

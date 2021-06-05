@@ -1,0 +1,41 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    nums = [1, 2, 0, 0, 5]
+    var isStraight = function (nums) {
+
+        var shunzi = nums.filter(function (elem) {
+            return elem != 0
+        }).sort()
+
+        var setshunzi=new Set(shunzi)
+        if(setshunzi.size!==shunzi.length){
+            return false
+        }
+        var max = Math.max(...shunzi)
+        var min = Math.min(...shunzi)
+        if (max - min <= 4) {
+            return true
+        }
+        else {
+            return false
+        }
+
+
+    };
+    console.log(isStraight(nums))
+
+
+</script>
+
+<body>
+
+
+</body>
+
+</html>

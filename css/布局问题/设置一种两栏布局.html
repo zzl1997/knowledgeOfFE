@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<h1>设计一个两栏布局</h1>
+<hr>
+<h2>方法一：两栏元素均向左浮动，第二个元素利用margin-left右移一些距离</h2>
+<div style="float: left ;width: 200px;background-color: red ;height: 300px"></div>
+<div style="margin-left: 200px; height: 300px; background-color: #00FF00"></div>
+<div style="clear: both"></div>
+<hr>
+<h2>方法一：一栏元素向左浮动，后面一栏的元素也会向左浮动，这个时候通过overflow设置一个hidden，则为右栏设置了一个BFC</h2>
+<div style="float: left ;width: 200px;background-color: red ;height: 300px"></div>
+<div style="overflow: hidden;height: 300px; background-color: #00FF00"></div>
+<div style="clear: both"></div>
+<hr>
+<h2>通过相对定位left让右栏向右移动</h2>
+<div style="height: 300px ;border: black 1px solid ;position: relative">
+  <div style="width: 300px;height: 100%;background-color: #00FFFF;position:absolute;"></div>
+  <div style="height: 100%;position: absolute;left: 301px ;background-color: yellow;right: 0"></div>
+</div>
+<hr>
+<h2>通过flex布局</h2>
+<div style="display: flex;height: 300px;border: solid black 1px">
+  <div style="flex: 0 0 100px ;background-color: red"></div>
+  <div style="flex:  1 1 auto;background-color: yellow"></div>
+</div>
+
+</body>
+</html>

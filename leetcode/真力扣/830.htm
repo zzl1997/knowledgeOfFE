@@ -1,0 +1,40 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /**
+ * @param {string} s
+ * @return {number[][]}
+ */
+        var largeGroupPositions = function (s) {
+            let start
+            let end
+            let res = []
+            for (let i = 0; i < s.length;) {
+                start = i
+                end = i
+                while (s[i] === s[i + 1]) {
+                    end++
+                    i++
+                }
+                if (end - start >= 2) {
+                    res.push([start, end])
+                }
+                i = end+1
+            }
+
+            return res
+        };
+
+        console.log(largeGroupPositions("abbxxxxzyy"))
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

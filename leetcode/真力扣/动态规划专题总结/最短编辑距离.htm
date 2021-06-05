@@ -1,0 +1,51 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    /**
+ * @param {string} word1
+ * @param {string} word2
+ * @return {number}
+ */
+    var minDistance = function (word1, word2) {
+        var m = word2.length
+        var n = word1.length
+        if (m == 0 || n == 0) { return m > 0 ? m : n }
+        var dp = new Array(m).fill(0).map(function () { return new Array(n).fill(0) })
+
+        var sum = 0
+        for (let i = 0; i < m; i++) {
+            dp[i][0] = sum
+            sum++
+        }
+        sum = 0
+        for (let i = 0; i < n; i++) {
+            dp[0][i] = sum
+            sum++
+        }
+        for (let i = 1; i < m; i++) {
+            for (let j = 1; j < n; j++) {
+                var min = Math.min(dp[i - 1][j - 1], dp[i - 1][j], dp[i][j - 1])
+                if (word1[j - 1] === word2[i - 1]) {
+                    dp[i][j] = min
+                } else {
+                    dp[i][j] = min + 1
+                }
+            }
+        }
+        return dp[m - 1][n - 1]
+
+        // console.log(dp)
+    }
+    minDistance("a", "b")
+</script>
+
+</html>

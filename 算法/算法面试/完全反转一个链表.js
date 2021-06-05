@@ -15,6 +15,8 @@ while (arr.length) {
 }
 
 // 快慢指针版本
+
+
 function reverse(head) {
     let pre = null
     let cur = head

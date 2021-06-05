@@ -1,0 +1,56 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        string = "abcedfsdf"
+        target = 'sdf'
+        function func1(string, target) {
+            if (string.length < target.length) { return false }
+            var i = string.length - 1
+            var j = target.length - 1
+
+            while (j >= 0) {
+                if (string[i] !== target[j]) { return false } else { }
+                j--
+                i--
+            }
+            return true
+
+        }
+        console.log(func1(string, target))
+
+        function fun2(string, target) {
+
+            if (string.length < target.length) { return false }
+            return string.endsWith(target)
+        }
+
+        console.log(fun2(string, target))
+
+
+        function fun3(string, target) {
+            if (string.length < target.length) { return false }
+            var pattern = new RegExp(target + "$", "i")
+
+            return pattern.test(string)
+        }
+
+
+        console.log(fun3(string, target))
+
+        function fun4(string, target) {
+            var temp=string.slice(-target.length)
+            return temp===target
+        }
+        console.log(fun4(string,target))
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+</head>
+<body>
+<div id="app">
+  <button @click="func1">1</button>
+  <button @click="func2(1)">2</button>
+</div>
+<script>
+    new Vue({
+        el: '#app',
+        methods: {
+            func1() {
+                console.log(1);
+            },
+            func2(){
+                console.log(arguments[0])
+            },
+
+        }
+    })
+</script>
+</body>
+</html>

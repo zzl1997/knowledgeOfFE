@@ -1,0 +1,111 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    var arr1 = [1, 2, 5, 6]
+    var arr2 = [1, 2, 3, 4]
+
+    // 去找arr1里面arr2没有的元素，然后再去arr2里面arr1没有的元素
+    function fun1(arr1, arr2) {
+        var res = []
+        for (let i = 0; i < arr1.length; i++) {
+            if (!arr2.includes(arr1[i])) {
+                res.push(arr1[i])
+            }
+        }
+        for (let i = 0; i < arr2.length; i++) {
+            if (!arr1.includes(arr2[i])) {
+                res.push(arr2[i])
+            }
+        }
+        return res
+    }
+    console.log(fun1(arr1, arr2))
+
+    // 注意到，方法一的两个for循环是可以封装成函数的
+    function fun2(arr1, arr2) {
+        return fun(arr1, arr2).concat(fun(arr2, arr1))
+        function fun(arr, target) {
+            var res = []
+            for (let i = 0; i < target.length; i++) {
+                if (!arr.includes(target[i])) {
+                    res.push(target[i])
+                }
+            }
+            return res
+        }
+    }
+    console.log(fun2(arr1, arr2))
+
+
+    // 采用集合的思想去做
+    function fun3(arr1, arr2) {
+
+        var union = arr1.concat(arr2)
+        function fun(arr, target) {
+            var res = []
+            for (let i = 0; i < target.length; i++) {
+                if (!arr.includes(target[i])) {
+                    res.push(target[i])
+                }
+            }
+            return res
+        }
+
+        return (fun(arr1, union)).concat(fun(arr2, union))
+    }
+    console.log(fun3(arr1, arr2))
+
+    // 可以将union去个重
+    function fun4(arr1, arr2) {
+
+        var union = arr1.concat(arr2).filter(function (elem, index, array) {
+            return array.indexOf(elem) == index
+        })
+        function fun(arr, target) {
+            var res = []
+            for (let i = 0; i < target.length; i++) {
+                if (!arr.includes(target[i])) {
+                    res.push(target[i])
+                }
+            }
+            return res
+        }
+
+        return (fun(arr1, union)).concat(fun(arr2, union))
+    }
+
+    console.log(fun4(arr1, arr2))
+
+    // 用集合的方法来去重
+    function fun5(arr1, arr2) {
+
+        var union = new Set(arr1.concat(arr2))
+        union = [...union]
+     
+
+        function fun(arr, target) {
+            var res = []
+            for (let i = 0; i < target.length; i++) {
+                if (!arr.includes(target[i])) {
+                    res.push(target[i])
+                }
+            }
+            return res
+        }
+
+        return (fun(arr1, union)).concat(fun(arr2, union))
+    }
+
+    console.log(fun5(arr1, arr2))
+</script>
+
+<body>
+
+</body>
+
+</html>

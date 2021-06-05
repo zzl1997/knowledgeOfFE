@@ -10,6 +10,7 @@
     // 输入,父类fn,构造参数...args
     {
         let instance = Object.create(Fn.prototype)
+
         // 写这句话的意思其实就是说,,,instance.__proto__=fn.prototype
         //
         // 把this指向当前实例，然后在构造函数里面走一遍
@@ -19,6 +20,7 @@
 
 
     }
+
 
     function Person(name) {
         this.name = name

@@ -1,0 +1,25 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var twoSum = function(nums, target) {
+    // 思路:2 和7是一对映射关系，我们存储这对映射关系，下次如果找到这对映射关系，我们就找到了
+    var mymap=new Map()
+    for(let i=0;i<nums.length;i++){
+        var x=nums[i]
+        if(mymap.has(x)){
+            return [i,mymap.get(x)]
+        }else{
+            mymap.set(target-x,i)
+        }
+    }
+};
+console.log(twoSum([2,4,5,6,7],9))
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

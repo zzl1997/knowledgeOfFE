@@ -1,0 +1,27 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        s = 'babad'
+        var map = new Map()
+        function find(index) {
+            var i = index
+            var j = index
+            while (s[i] == s[j] && s[i] !== undefined && s[j] !== undefined) {
+                i--
+                j++
+            }
+
+            map.set(j - i - 1, s.slice(i + 1, j ))
+        }
+        find(4)
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+var minWindow = function(s, t) {
+    var  map={}
+    // queshaode map
+    for(let i=0;i<t.length;i++){
+       let  c=t[i]
+       if(!map[c]){
+           map[c]=1
+       }else{
+           map[c]++
+       }
+    }
+    // console.log(map)
+    var max=Infinity
+    var  res=s
+    let left=right=0
+    var count=t.length
+    while(right<=s.length-1){
+        let c= s[right]
+        if(map[c]>0){
+            count--
+            
+        }
+        map[c]--
+        right++
+        while(count===0){
+            var  len=right-left
+            if(len<max){
+                max=len
+                res=s.slice(left,right)
+            }
+            let c= s[left]
+            map[c]++
+            if(map[c]>0){
+                count++
+            }
+            left++
+    
+        }
+    }
+    console.log(res)
+    return max ===Number.MAX_SAFE_INTEGER? '':res
+    
+    }

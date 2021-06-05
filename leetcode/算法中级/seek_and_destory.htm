@@ -1,0 +1,72 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    function fun(arr) {
+        // argument没有slice方法，因此，先要转成数组再调用slice方法,一共四种方法可供参考
+        // var todelete=[...arguments].slice(1)
+
+        // var todelete= Array.from(arguments).slice(1)
+
+        // var todelete=[].slice.call(arguments).slice(1)
+
+        // var todelete=Array.prototype.slice.call(arguments).slice(1)
+
+        // var todelete = []
+        // for (let i = 1; i <= arguments.length - 1; i++) {
+        //     todelete.push(arguments[i])
+        // }
+        // console.log(todelete)
+
+        var todelete = [...arguments].slice(1)
+        var res = []
+        for (let i = 0; i < arr.length; i++) {
+            if (!todelete.includes(arr[i])) {
+                res.push(arr[i])
+            }
+        }
+        return res
+    }
+    console.log(fun([1, 2, 3, 1, 2, 3], 2, 3))
+
+    function fun1(arr) {
+        // argument没有slice方法，因此，先要转成数组再调用slice方法,一共四种方法可供参考
+        // var todelete=[...arguments].slice(1)
+
+        // var todelete= Array.from(arguments).slice(1)
+
+        // var todelete=[].slice.call(arguments).slice(1)
+
+        // var todelete=Array.prototype.slice.call(arguments).slice(1)
+
+        // var todelete = []
+        // for (let i = 1; i <= arguments.length - 1; i++) {
+        //     todelete.push(arguments[i])
+        // }
+        // console.log(todelete)
+
+        var todelete = new Set([...arguments].slice(1))
+        var res = []
+        for (let i = 0; i < arr.length; i++) {
+            if (!todelete.has(arr[i])) {
+                res.push(arr[i])
+            }
+        }
+        return res
+    }
+    console.log(fun1([1, 2, 3, 1, 2, 3], 2, 3))
+
+
+
+    
+</script>
+
+<body>
+
+</body>
+
+</html>

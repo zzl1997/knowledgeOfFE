@@ -1,0 +1,81 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        class Node {
+            constructor(key) {
+                this.key = key
+                this.left = null
+                this.right = null
+
+            }
+        }
+        class Tree {
+            constructor() {
+                this.root = null
+            }
+            insert(key) {
+                var node = new Node(key)
+                if (this.root === null) {
+                    this.root = node
+                } else {
+                    insertnode(this.root, node)
+                }
+                // 函数的定义：将节点插入指定位置的二叉排序树上去
+                function insertnode(nodepisiton, newnode) {
+                    1
+                    if (newnode.key <= nodepisiton.key) {
+                        if (nodepisiton.left === null) {
+                            nodepisiton.left = newnode
+                        } else {
+                            insertnode(nodepisiton.left, newnode)
+                        }
+                    } else {
+                        if (nodepisiton.right === null) {
+                            nodepisiton.right = newnode
+                        } else {
+                            insertnode(nodepisiton.right, newnode)
+                        }
+                    }
+                }
+            }
+            // 函数定义：对于一个二叉树，遍历其树
+            inorder(root) {
+
+                if (root !== null) {
+                    this.inorder(root.left)
+                    console.log(root.key)
+                    this.inorder(root.right)
+                }
+
+
+            }
+        }
+
+        var bintree = new Tree()
+        bintree.insert(7);
+        bintree.insert(15);
+        bintree.insert(5);
+        bintree.insert(3);
+        bintree.insert(9);
+        bintree.insert(8);
+        bintree.insert(10);
+        bintree.insert(13);
+        bintree.insert(12);
+        bintree.insert(14);
+        bintree.insert(20);
+        bintree.insert(18);
+        bintree.insert(25);
+
+        bintree.inorder(bintree.root)
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

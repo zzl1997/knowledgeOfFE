@@ -12,6 +12,7 @@ add = function (x) {
         }
     }
 }
+
 const addOne = add(1);
 const addOneAndTwo = addOne(2);
 const addOneAndTwoAndThree = addOneAndTwo(3);

@@ -1,0 +1,76 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        var arr = [[0, 1, 2, 3, 5], [0, 1, 2, 3, 4], [0, 1, 2, 3, 4], [0, 1, 2, 3, 4], [0, 1, 2, 3, 4]]
+
+
+        function func1(arr) {
+            return arr.map(function (elem) {
+                return Math.max(...elem)
+            })
+        }
+        console.log(func1(arr))
+
+        function func2(arr) {
+
+            var newarr = []
+            for (let i = 0; i < arr.length; i++) {
+                result = -Infinity
+
+                for (let j = 0; j < arr[i].length; j++) {
+                    result = Math.max(result, arr[i][j])
+                }
+                newarr.push(result)
+            }
+            return newarr
+        }
+
+        console.log(func2(arr))
+
+        function func3(arr) {
+            var newarr = []
+            for (let i = 0; i < arr.length; i++) {
+
+                let result = arr[i].reduce(function (accum, curr) {
+
+
+                    if (accum >= curr) {
+                        return accum
+                    }
+                    else {
+                        return curr
+                    }
+                }, -Infinity)
+                newarr.push(result)
+            }
+            return newarr
+
+        }
+        console.log(func3(arr))
+        function func4(arr) {
+
+            return arr.map(function (arr) {
+
+
+                return arr.reduce(function (accum, curr) {
+
+                    return Math.max(accum, curr)
+                }, -Infinity)
+            })
+        }
+
+
+        console.log(func4(arr))
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

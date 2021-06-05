@@ -1,0 +1,57 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var string = "i'am a liLLte TeA POT"
+        function fun1(str) {
+
+            var newstr = ""
+            blank_flag = true
+            for (let i = 0; i < str.length; i++) {
+                if (blank_flag) {
+                    newstr = newstr + str[i].toUpperCase()
+                    blank_flag = false
+                }
+                else {
+
+                    if (str[i] === " ") {
+                        newstr = newstr + str[i]
+                        blank_flag = true
+                    } else {
+                        newstr = newstr + str[i].toLowerCase()
+                    }
+                }
+            }
+            return newstr
+        }
+
+        console.log(fun1(string))
+
+
+        function fun2(str) {
+           return  str.split(" ").map(
+                function (word) {
+                    return word[0].toUpperCase() + word.slice(1).toLowerCase()
+                }
+
+            ).join(" ")
+        }
+        console.log(fun2(string))
+
+        function fun3(str){
+           return  str.toLowerCase().replace(/(^|\s)[a-zA-Z]/g,function(match){return match.toUpperCase()})
+            
+        }
+        console.log(fun3(string))
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
